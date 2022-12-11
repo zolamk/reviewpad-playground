@@ -11,13 +11,22 @@ labels:
 
 workflows:
     - name: label-pull-request-with-size
+      always-run: true
       if:
           - rule: $size() <= 30
             extra-actions:
                 - $addLabel("small")
+                - $info("the small label was added to the pull request")
+                - $error("pull requests should not touch the LICENSE file")
           - rule: $size() > 30 && $size() <= 100
             extra-actions:
                 - $addLabel("medium")
           - rule: $size() > 100
             extra-actions:
                 - $addLabel("large")
+    - name: has-no-description
+      always-run: true
+      if:
+        - rule: $description() == ""
+          extra-actions:
+            - $warn("pull request doesn't have description")
