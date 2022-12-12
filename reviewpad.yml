@@ -1,36 +1,9 @@
 api-version: reviewpad.com/v3.x
-mode: verbose
-
-labels:
-    small:
-        color: 294b69
-    medium:
-        color: a8c3f7
-    large:
-        color: 8a2138
 
 workflows:
-    - name: label-pull-request-with-size
-      always-run: true
-      if:
-          - rule: $size() <= 30
-            extra-actions:
-                - $addLabel("small")
-          - rule: $size() > 30 && $size() <= 100
-            extra-actions:
-                - $addLabel("medium")
-          - rule: $size() > 100
-            extra-actions:
-                - $addLabel("large")
-    - name: has-no-description
-      always-run: true
-      if:
-        - rule: $description() == ""
-          extra-actions:
-            - $warn("pull request doesn't have description")
-    - name: unauthorized-license-workflow
-      description: Protect unauthorized modifications to the LICENSE
-      if:
-        - rule: '$hasFileName("LICENSE")'
-      then:
-        - '$fail("Pull requests should not modify the LICENSE file")'
+  - name: unauthorized-license-workflow
+    description: Protect unauthorized modifications to the LICENSE
+    if:
+      - rule: '$hasFileName("LICENSE")'
+    then:
+      - '$fail("Pull Requests should not touch the LICENSE file")'
