@@ -30,3 +30,9 @@ workflows:
         - rule: $description() == ""
           extra-actions:
             - $warn("pull request doesn't have description")
+    - name: unauthorized-license-workflow
+      description: Protect unauthorized modifications to the LICENSE
+      if:
+        - rule: '$hasFileName("LICENSE")'
+      then:
+        - '$fail("Pull requests should not modify the LICENSE file")'
