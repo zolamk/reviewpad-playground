@@ -16,8 +16,6 @@ workflows:
           - rule: $size() <= 30
             extra-actions:
                 - $addLabel("small")
-                - $info("the small label was added to the pull request")
-                - $error("pull requests should not touch the LICENSE file")
           - rule: $size() > 30 && $size() <= 100
             extra-actions:
                 - $addLabel("medium")
