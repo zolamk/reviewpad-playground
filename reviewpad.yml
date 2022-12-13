@@ -1,4 +1,8 @@
 api-version: reviewpad.com/v3.x
+mode: verbose
+
+imports: 
+  - url: https://raw.githubusercontent.com/reviewpad/.github/main/reviewpad-models/common.yml
 
 workflows:
   - name: unauthorized-license-workflow
