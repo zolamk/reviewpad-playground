@@ -10,7 +10,7 @@ workflows:
     if:
       - rule: '$hasFileName("LICENSE")'
     then:
-      - '$fail("Pull Requests should not touch the LICENSE file")'
+      - '$error("Pull Requests should not touch the LICENSE file")'
       
   - name: long-live
     if:
