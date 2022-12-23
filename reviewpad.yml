@@ -98,7 +98,7 @@ workflows:
       # Automatically assign a random reviewer when the pull request is ready for review;
       - rule: $isDraft() == false
         extra-actions:
-          - $assignRandomReviewer()
+          - $assignReviewer(["xulamek"], "random")
 
   # This workflow signals pull requests waiting for reviews.
   # This helps guarantee that pull requests are reviewed and approved by at least one person.
