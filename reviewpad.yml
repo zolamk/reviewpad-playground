@@ -119,13 +119,3 @@ workflows:
       - rule: $hasFileExtensions(["package.json", "package-lock.json"])
         extra-actions:
           - $addLabel("dependencies")
-
-  # This workflow validates that pull requests do not contain changes to the license.
-  # This helps avoid unwanted license modifications.
-  - name: license-validation
-    description: Validate that licenses are not modified
-    always-run: true
-    if:
-      - rule: $hasFilePattern("**/LICENSE*")
-        extra-actions:
-          - $fail("License files cannot be modified")
