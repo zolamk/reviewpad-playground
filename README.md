@@ -1,4 +1,3 @@
 # reviewpad-playground
 
 description
-power
