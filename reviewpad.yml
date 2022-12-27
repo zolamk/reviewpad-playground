@@ -99,7 +99,6 @@ workflows:
       - rule: $isDraft() == false && $approvalsCount() < 1
         extra-actions:
           - $addLabel("waiting-for-review")
-          - $assignReviewers(["miqe"])
 
   # This workflow labels pull requests based on the pull request change type.
   # This helps pick pull requests based on their change type.
