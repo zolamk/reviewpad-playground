@@ -12,20 +12,24 @@ api-version: reviewpad.com/v3.x
 # For more details see https://docs.reviewpad.com/guides/syntax#workflow.
 workflows:
 
-
-
-
-
-
-
-
-  # This workflow validates that pull requests do not contain changes to the license.
-  # This helps avoid unwanted license modifications.
-  - name: license-validation
-    description: Validate that licenses are not modified
+  # This workflow praises contributors on their pull request contributions.
+  # This helps contributors feel appreciated.
+  - name: praise-contributors-on-milestones
+    description: Praise contributors based on their contributions
     always-run: true
     if:
-      # Fail Reviewpad check on pull requests that modify any LICENSE;
-      - rule: $hasFilePattern("**/LICENSE*")
+      # Praise contributors on their first pull request.
+      - rule: $pullRequestCountBy($author()) == 1
         extra-actions:
-          - $fail("License files cannot be modified")
+          - $commentOnce($sprintf("Thank you @%s for this first contribution!", [$author()]))
+      # Praise contributors on their 100th pull request.
+      - rule: $pullRequestCountBy($author()) == 100
+        extra-actions:
+          - $commentOnce($sprintf("Way to go 🎉 This is your 100th pull request!", [$author()]))
+
+
+
+
+
+
+
