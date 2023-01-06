@@ -1,6 +1,4 @@
 api-version: reviewpad.com/v3.x
-# Define the list of labels to be used by Reviewpad.
-# For more details see https://docs.reviewpad.com/guides/syntax#label.
 labels:
   small:
     description: Pull request is small
