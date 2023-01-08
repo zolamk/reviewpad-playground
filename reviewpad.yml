@@ -18,7 +18,6 @@ workflows:
       - rule: $isDraft() == false
     then:
       - $commitLint()
-      # Check pull request title against the conventional commits specification.
       - $titleLint()
       
   - name: best-practices
