@@ -12,10 +12,7 @@ workflows:
       - rule: $pullRequestCountBy($author()) == 100
         extra-actions:
           - $commentOnce($sprintf("Way to go 🎉 This is your 100th pull request!", [$author()]))
-
-  # This workflow validates that pull requests follow the conventional commits specification.
-  # This helps developers automatically generate changelogs.
-  # For more details, see https://www.conventionalcommits.org/en/v1.0.0/.
+          
   - name: check-conventional-commits
     description: Validate that pull requests follow the conventional commits
     always-run: true
