@@ -4,7 +4,6 @@ workflows:
     description: Praise contributors based on their contributions
     always-run: true
     if:
-      # Praise contributors on their first pull request.
       - rule: $pullRequestCountBy($author()) == 1
         extra-actions:
           - $commentOnce($sprintf("Thank you @%s for this first contribution!", [$author()]))
