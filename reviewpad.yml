@@ -40,8 +40,6 @@ workflows:
         extra-actions:
           - $warn("Please rebase your pull request on the latest changes")
 
-  # This workflow assigns a random reviewer to pull requests.
-  # This helps guarantee that most pull requests are reviewed by at least one person.
   - name: reviewer-assignment
     description: Assign a reviewer to pull requests
     always-run: true
