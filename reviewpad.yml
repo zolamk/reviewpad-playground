@@ -1,7 +1,5 @@
 api-version: reviewpad.com/v3.x
 workflows:
-  # This workflow praises contributors on their pull request contributions.
-  # This helps contributors feel appreciated.
   - name: praise-contributors-on-milestones
     description: Praise contributors based on their contributions
     always-run: true
