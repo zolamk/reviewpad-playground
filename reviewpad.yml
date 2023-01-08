@@ -24,7 +24,6 @@ workflows:
     description: Validate best practices for pull request management
     always-run: true
     if:
-      # Warn pull requests that do not have an associated GitHub issue.
       - rule: $hasLinkedIssues() == false
         extra-actions:
           - $warn("Please link an issue to the pull request")
