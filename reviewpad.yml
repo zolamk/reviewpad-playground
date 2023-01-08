@@ -17,7 +17,6 @@ workflows:
     if:
       - rule: $isDraft() == false
     then:
-      # Check commits messages against the conventional commits specification
       - $commitLint()
       # Check pull request title against the conventional commits specification.
       - $titleLint()
