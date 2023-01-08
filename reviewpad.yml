@@ -48,8 +48,6 @@ workflows:
         extra-actions:
           - $assignRandomReviewer()
 
-  # This workflow signals pull requests waiting for reviews.
-  # This helps guarantee that pull requests are reviewed and approved by at least one person.
   - name: check-approvals
     description: Check that pull requests have the required number of approvals
     always-run: true
